@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import { novels, getNovelBySlug, CATEGORY_COLORS } from "@/lib/novels";
+import { ReaderHeader } from "@/components/ReaderHeader";
 import type { Metadata } from "next";
 
 interface PageProps {
@@ -28,28 +28,7 @@ export default async function NovelPage({ params }: PageProps) {
 
   return (
     <main className="min-h-screen">
-      {/* Sticky reader header */}
-      <div className="sticky top-16 z-50 border-b border-border bg-bg/95 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-[720px] items-center justify-between px-8 py-4">
-          <Link
-            href="/"
-            className="flex items-center gap-2 text-sm tracking-wider text-ink-light no-underline transition-colors hover:text-ink"
-          >
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path d="M19 12H5M12 19l-7-7 7-7" />
-            </svg>
-            戻る
-          </Link>
-          <div className="font-serif text-sm text-ink-light">{novel.title}</div>
-        </div>
-      </div>
+      <ReaderHeader title={novel.title} />
 
       {/* Reader content */}
       <article className="mx-auto max-w-[680px] px-8 pt-16 pb-32">

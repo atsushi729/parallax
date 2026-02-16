@@ -1,21 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useHeaderHidden } from "./HeaderContext";
 
 export function Header() {
-  const [hidden, setHidden] = useState(false);
-  const [lastScroll, setLastScroll] = useState(0);
-
-  useEffect(() => {
-    const onScroll = () => {
-      const curr = window.scrollY;
-      setHidden(curr > lastScroll && curr > 100);
-      setLastScroll(curr);
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [lastScroll]);
+  const hidden = useHeaderHidden();
 
   return (
     <header

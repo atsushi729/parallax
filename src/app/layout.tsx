@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Shippori_Mincho, Zen_Kaku_Gothic_New } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
+import { HeaderProvider } from "@/components/HeaderContext";
 import { Footer } from "@/components/Footer";
 
 const shippori = Shippori_Mincho({
@@ -30,9 +31,11 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className={`${shippori.variable} ${zen.variable} font-sans leading-relaxed`}>
-        <Header />
-        {children}
-        <Footer />
+        <HeaderProvider>
+          <Header />
+          {children}
+          <Footer />
+        </HeaderProvider>
       </body>
     </html>
   );
