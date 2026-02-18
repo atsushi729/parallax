@@ -11,7 +11,9 @@ export async function generateStaticParams() {
   return novels.map((novel) => ({ slug: novel.id }));
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const novel = getNovelBySlug(slug);
   if (!novel) return { title: "Not Found" };
