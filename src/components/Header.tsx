@@ -1,16 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useHeaderHidden } from "./HeaderContext";
 
 export function Header() {
-  const hidden = useHeaderHidden();
-
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-100 border-b border-border bg-bg/90 backdrop-blur-xl transition-transform duration-300 ${
-        hidden ? "-translate-y-full" : ""
-      }`}
+      className="fixed top-0 left-0 right-0 z-100 border-b border-border bg-bg/90 backdrop-blur-xl"
     >
       <div className="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-8">
         <Link href="/" className="font-serif text-xl font-bold tracking-wider text-ink no-underline">
