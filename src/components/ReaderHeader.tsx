@@ -1,9 +1,11 @@
 "use client";
 
-import Link from "next/link";
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 import { useHeaderHidden } from "./HeaderContext";
 
 export function ReaderHeader({ title }: { title: string }) {
+  const t = useTranslations('ReaderHeader');
   const headerHidden = useHeaderHidden();
 
   return (
@@ -27,7 +29,7 @@ export function ReaderHeader({ title }: { title: string }) {
           >
             <path d="M19 12H5M12 19l-7-7 7-7" />
           </svg>
-          戻る
+          {t('back')}
         </Link>
         <div className="font-serif text-sm text-ink-light">{title}</div>
       </div>

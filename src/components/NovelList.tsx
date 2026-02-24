@@ -1,22 +1,24 @@
 "use client";
 
-import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 import { novels, CATEGORIES, CATEGORY_COLORS, type Category } from "@/lib/novels";
 
-const filterOptions: { key: string; label: string }[] = [
-  { key: "all", label: "すべて" },
-  { key: "mystery", label: "ミステリー" },
-  { key: "history", label: "歴史小説" },
-  { key: "sf", label: "SF" },
-  { key: "horror", label: "ホラー" },
-  { key: "social", label: "社会派" },
-  { key: "youth", label: "青春" },
-];
-
 export function NovelList() {
+  const t = useTranslations('NovelList');
   const searchParams = useSearchParams();
   const activeFilter = searchParams.get("category") || "all";
+
+  const filterOptions: { key: string; label: string }[] = [
+    { key: "all", label: t('filterAll') },
+    { key: "mystery", label: t('filterMystery') },
+    { key: "history", label: t('filterHistory') },
+    { key: "sf", label: t('filterSf') },
+    { key: "horror", label: t('filterHorror') },
+    { key: "social", label: t('filterSocial') },
+    { key: "youth", label: t('filterYouth') },
+  ];
 
   const filtered =
     activeFilter === "all"
@@ -26,7 +28,7 @@ export function NovelList() {
   return (
     <section id="novels" className="mx-auto max-w-[1200px] px-8 py-16">
       <div className="mb-10 flex items-baseline justify-between border-b border-border pb-4">
-        <h2 className="font-serif text-lg font-semibold tracking-wide">作品一覧</h2>
+        <h2 className="font-serif text-lg font-semibold tracking-wide">{t('heading')}</h2>
         <span className="text-xs tracking-[0.1em] text-ink-faint">LIBRARY</span>
       </div>
 

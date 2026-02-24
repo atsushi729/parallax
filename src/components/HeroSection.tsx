@@ -1,6 +1,9 @@
-import Link from "next/link";
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 
 export function HeroSection() {
+  const t = useTranslations('Hero');
+
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden">
       {/* Manuscript grid — very subtle washi paper feel */}
@@ -79,7 +82,7 @@ export function HeroSection() {
               letterSpacing: "-0.01em",
             }}
           >
-            生成AIが紡ぐ、
+            {t('headline1')}
           </span>
           <span
             className="block"
@@ -99,9 +102,9 @@ export function HeroSection() {
                 backgroundClip: "text",
               }}
             >
-              新しい物語
+              {t('headline2gradient')}
             </span>
-            <span className="text-ink">の世界</span>
+            <span className="text-ink">{t('headline2suffix')}</span>
           </span>
         </h1>
 
@@ -119,8 +122,7 @@ export function HeroSection() {
           className="animate-fade-up mt-8 max-w-[460px] font-sans text-[0.95rem] leading-[2] text-ink-light"
           style={{ animationDelay: "0.22s" }}
         >
-          人工知能が創り出す多彩なジャンルの小説を、いつでも自由にお読みいただけます。
-          ミステリーから青春小説まで、無限に広がる物語の泉へようこそ。
+          {t('description')}
         </p>
 
         {/* CTA buttons */}
@@ -132,7 +134,7 @@ export function HeroSection() {
             href="/#novels"
             className="group inline-flex items-center gap-3 bg-ink px-8 py-4 font-sans text-sm font-medium tracking-[0.12em] text-bg no-underline transition-all duration-200 hover:bg-ink-light"
           >
-            作品を読む
+            {t('ctaPrimary')}
             <svg
               width="13"
               height="10"
@@ -153,7 +155,7 @@ export function HeroSection() {
             href="/#categories"
             className="inline-flex items-center gap-2 border border-border px-8 py-4 font-sans text-sm font-medium tracking-[0.12em] text-ink-light no-underline transition-all duration-200 hover:border-ink hover:text-ink"
           >
-            ジャンルを見る
+            {t('ctaSecondary')}
           </Link>
         </div>
 
@@ -163,9 +165,9 @@ export function HeroSection() {
           style={{ animationDelay: "0.4s" }}
         >
           {[
-            { value: "6", label: "ジャンル", en: "GENRES" },
-            { value: "∞", label: "読み放題", en: "UNLIMITED" },
-            { value: "24/7", label: "いつでも", en: "ALWAYS ON" },
+            { value: "6", label: t('stat1Label'), en: "GENRES" },
+            { value: "∞", label: t('stat2Label'), en: "UNLIMITED" },
+            { value: "24/7", label: t('stat3Label'), en: "ALWAYS ON" },
           ].map((stat, i) => (
             <div key={i} className="flex items-stretch max-sm:w-full">
               {i > 0 && (
@@ -192,42 +194,6 @@ export function HeroSection() {
           ))}
         </div>
       </div>
-
-      {/* Scroll indicator */}
-      {/* <div
-        className="animate-fade-up absolute bottom-20 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-        style={{ animationDelay: "0.55s" }}
-      >
-        <span className="font-sans text-[0.6rem] tracking-[0.3em] text-ink-faint">
-          SCROLL
-        </span>
-        <div
-          className="h-8 w-px bg-gradient-to-b from-ink-faint to-transparent"
-          style={{ animation: "scrollLine 2s ease-in-out infinite" }}
-        />
-      </div> */}
-
-      {/* Bottom border */}
-      {/* <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-px"
-        style={{
-          background:
-            "linear-gradient(90deg, transparent 0%, rgba(138,133,120,0.3) 40%, rgba(138,133,120,0.3) 60%, transparent 100%)",
-        }}
-      />
-
-      <style>{`
-        @keyframes subtlePulse {
-          0%, 100% { opacity: 1; transform: scale(1); }
-          50% { opacity: 0.5; transform: scale(0.85); }
-        }
-        @keyframes scrollLine {
-          0% { transform: scaleY(0); transform-origin: top; opacity: 0; }
-          40% { transform: scaleY(1); transform-origin: top; opacity: 1; }
-          60% { transform: scaleY(1); transform-origin: bottom; opacity: 1; }
-          100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
-        }
-      `}</style> */}
     </section>
   );
 }

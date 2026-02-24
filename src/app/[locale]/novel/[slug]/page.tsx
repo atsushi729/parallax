@@ -2,29 +2,33 @@ import { notFound } from "next/navigation";
 import { novels, getNovelBySlug, CATEGORY_COLORS } from "@/lib/novels";
 import { ReaderHeader } from "@/components/ReaderHeader";
 import type { Metadata } from "next";
+import { routing } from "@/i18n/routing";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 interface PageProps {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }
 
-export async function generateStaticParams() {
-  return novels.map((novel) => ({ slug: novel.id }));
+export function generateStaticParams() {
+  return routing.locales.flatMap((locale) =>
+    novels.map((novel) => ({ locale, slug: novel.id }))
+  );
 }
 
-export async function generateMetadata({
-  params,
-}: PageProps): Promise<Metadata> {
-  const { slug } = await params;
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale, slug } = await params;
   const novel = getNovelBySlug(slug);
   if (!novel) return { title: "Not Found" };
+  const t = await getTranslations({ locale, namespace: "Metadata" });
   return {
-    title: `${novel.title} — 物語の泉`,
+    title: `${novel.title} — ${t("novelTitleSuffix")}`,
     description: novel.description,
   };
 }
 
 export default async function NovelPage({ params }: PageProps) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
+  setRequestLocale(locale);
   const novel = getNovelBySlug(slug);
   if (!novel) notFound();
 

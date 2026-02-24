@@ -1,17 +1,19 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useTranslations } from 'next-intl';
+import { useRouter } from '@/i18n/navigation';
 import { CATEGORIES, CATEGORY_BAR_COLORS, type Category } from "@/lib/novels";
 
 const catKeys = Object.keys(CATEGORIES) as Category[];
 
 export function CategoryGrid() {
+  const t = useTranslations('CategoryGrid');
   const router = useRouter();
 
   return (
     <section id="categories" className="mx-auto max-w-[1200px] px-8 pt-16 pb-8">
       <div className="mb-10 flex items-baseline justify-between border-b border-border pb-4">
-        <h2 className="font-serif text-lg font-semibold tracking-wide">ジャンル</h2>
+        <h2 className="font-serif text-lg font-semibold tracking-wide">{t('heading')}</h2>
         <span className="text-xs tracking-[0.1em] text-ink-faint">GENRES</span>
       </div>
 
@@ -33,7 +35,7 @@ export function CategoryGrid() {
               <div className="mt-1 text-[0.65rem] tracking-[0.2em] uppercase text-ink-faint">
                 {cat.en}
               </div>
-              <div className="mt-4 text-sm text-ink-light">{cat.count} 作品</div>
+              <div className="mt-4 text-sm text-ink-light">{t('worksCount', { count: cat.count })}</div>
             </button>
           );
         })}

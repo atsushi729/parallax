@@ -1,0 +1,39 @@
+{
+  "Metadata": {
+    "siteTitle": "Monogatari no Izumi — AI Novel Library",
+    "siteDescription": "Read novels across diverse genres crafted by generative AI, anytime and freely. Welcome to Monogatari no Izumi — an ever-expanding wellspring of stories.",
+    "novelTitleSuffix": "Monogatari no Izumi"
+  },
+  "Header": {
+    "siteTitle": "物語の泉",
+    "navGenres": "Genres",
+    "navLibrary": "Library"
+  },
+  "Hero": {
+    "headline1": "Stories woven by",
+    "headline2gradient": "generative AI",
+    "headline2suffix": "",
+    "description": "Read novels across diverse genres crafted by generative AI, anytime and freely. Welcome to an ever-expanding wellspring of stories.",
+    "ctaPrimary": "Read Stories",
+    "ctaSecondary": "Browse Genres",
+    "stat1Label": "Genres",
+    "stat2Label": "Unlimited",
+    "stat3Label": "Always On"
+  },
+  "CategoryGrid": {
+    "heading": "Genres",
+    "worksCount": "{count} works"
+  },
+  "NovelList": {
+    "heading": "Library",
+    "filterAll": "All",
+    "filterMystery": "Mystery",
+    "filterHistory": "Historical Fiction",
+    "filterSf": "Science Fiction",
+    "filterHorror": "Horror",
+    "filterSocial": "Social Fiction",
+    "filterYouth": "Coming of Age"
+  },
+  "ReaderHeader": { "back": "Back" },
+  "Footer": { "disclaimer": "All works are fiction created by generative AI" }
+}

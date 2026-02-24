@@ -1,0 +1,39 @@
+{
+  "Metadata": {
+    "siteTitle": "物語の泉 — AI小説ライブラリ",
+    "siteDescription": "生成AIが創り出す多彩なジャンルの小説を、いつでも自由にお読みいただけます。ミステリーから青春小説まで、無限に広がる物語の泉へようこそ。",
+    "novelTitleSuffix": "物語の泉"
+  },
+  "Header": {
+    "siteTitle": "物語の泉",
+    "navGenres": "ジャンル",
+    "navLibrary": "作品一覧"
+  },
+  "Hero": {
+    "headline1": "生成AIが紡ぐ、",
+    "headline2gradient": "新しい物語",
+    "headline2suffix": "の世界",
+    "description": "人工知能が創り出す多彩なジャンルの小説を、いつでも自由にお読みいただけます。ミステリーから青春小説まで、無限に広がる物語の泉へようこそ。",
+    "ctaPrimary": "作品を読む",
+    "ctaSecondary": "ジャンルを見る",
+    "stat1Label": "ジャンル",
+    "stat2Label": "読み放題",
+    "stat3Label": "いつでも"
+  },
+  "CategoryGrid": {
+    "heading": "ジャンル",
+    "worksCount": "{count} 作品"
+  },
+  "NovelList": {
+    "heading": "作品一覧",
+    "filterAll": "すべて",
+    "filterMystery": "ミステリー",
+    "filterHistory": "歴史小説",
+    "filterSf": "SF",
+    "filterHorror": "ホラー",
+    "filterSocial": "社会派",
+    "filterYouth": "青春"
+  },
+  "ReaderHeader": { "back": "戻る" },
+  "Footer": { "disclaimer": "すべての作品は生成AIにより創作されたフィクションです" }
+}
